@@ -1,0 +1,140 @@
+
+community life expectancy:
+
+
+Step 1 - Start with a question
+
+1-What is the average life expectancy of residents in our community?
+
+2-How does life expectancy vary across different neighborhoods within our community?
+
+3-What is the maximum life expectancy recorded in our community?
+
+4-Are there any neighborhoods in our community where life expectancy is below a certain threshold (e.g., 70 years)?
+
+Student queestion:
+what is the country that has life expectancy greater than -2 between the year 1950 to 1956 and their population greater than 7000000000
+
+
+
+
+Step 2 - Begin creating an answer
+
+1-The average life expectancy of residents in our community is 70 years.
+
+
+
+2-Life expectancy varies across different neighborhoods within our community
+
+3-The maximum life expectancy recorded in our community is 70 years.
+
+4-Yes, there are neighborhoods in our community where life expectancy is below 70 years
+
+Student answer:
+
+Based on the available data and without specific access to a live database, we'll present a hypothetical SQL script that outlines the process. We'll assume you have a table named country_data with columns country_name, year, life_expectancy, and population.
+
+
+Step 3 - Create an Ad Hoc SQL query
+
+1-SELECT AVG(life_expectancy)
+FROM community_data;
+
+
+2-SELECT neighborhood, AVG(life_expectancy) AS average_life_expectancy
+FROM community_data
+GROUP BY neighborhood;
+
+3-SELECT MAX(life_expectancy)
+FROM community_data;
+
+
+4-SELECT neighborhood, AVG(life_expectancy) AS average_life_expectancy
+FROM community_data
+GROUP BY neighborhood
+HAVING AVG(life_expectancy) < 70;
+
+student query:
+-- Create a temporary table to filter countries with life expectancy greater than -2 between 1950 and 1956
+CREATE TEMPORARY TABLE temp_table AS
+SELECT country_name, year, life_expectancy, population
+FROM country_data
+WHERE year BETWEEN 1950 AND 1956
+AND life_expectancy > -2;
+
+-- Retrieve countries with population greater than 7 billion from the temporary table
+SELECT country_name
+FROM temp_table
+WHERE population > 7000000000;
+
+
+
+
+
+
+
+my community Data family for the simpson
+
+Step 1 - Start with a question
+
+
+1-What is the average family size in the Simpson community?
+
+2-How does family size vary across different neighborhoods within the Simpson community?
+
+3-What is the maximum family size recorded in the Simpson community?
+
+
+4-Are there any neighborhoods in the Simpson community where the average family size is above a certain threshold (e.g., 5 persons)?
+
+
+Student  question:
+what is the number of year the members of the family  have worked for? provide the members ID, the name and the job title from each members
+
+
+Step 2 - Begin creating an answer
+
+1- The average family size in the Simpson community is 51 persons.
+
+2-  Family size varies across different neighborhoods within the Simpson community. Here are the average family sizes for each neighborhood
+
+3-The maximum family size recorded in the Simpson community is 50 persons.
+
+4-Yes, there are neighborhoods in the Simpson community where the average family size is above 5 persons.
+
+student answer:
+To provide the number of years each member of the family has worked for, along with their ID, name, and job title, we need information about their start dates of employment and the current date. Here's a hypothetical SQL script assuming you have a table named family_members with columns member_id, name, job_title, and start_date:
+
+
+
+
+
+
+Step 3 - Create an Ad Hoc SQL query
+
+1-SELECT AVG(family_size)
+FROM simpson_family_data;
+
+2-SELECT neighborhood, AVG(family_size) AS average_family_size
+FROM simpson_family_data
+GROUP BY neighborhood;
+
+3-SELECT MAX(family_size)
+FROM simpson_family_data;
+
+4-SELECT neighborhood, AVG(family_size) AS average_family_size
+FROM simpson_family_data
+GROUP BY neighborhood
+HAVING AVG(family_size) > 5;
+
+Student query:
+-- Calculate the number of years each family member has worked
+SELECT 
+    member_id,
+    name,
+    job_title,
+    DATEDIFF(CURDATE(), start_date) / 365 AS years_worked
+FROM 
+    family_members;
+
+
